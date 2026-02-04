@@ -4,18 +4,28 @@
     "type": "module",
     "private": true,
     "scripts": {
-        "dev": "bun --watch src/index.ts",
-        "build": "bun build src/index.ts --target bun --outdir ./dist",
+        "dev": "bun --watch src/http/server.ts",
+        "build": "bun build src/http/server.ts --target bun --outdir ./dist",
         "start": "NODE_ENV=production bun dist/index.js",
-        "test": "bun test"
+        "test": "bun test",
+        "generate": "drizzle-kit generate",
+        "migrate": "bun src/db/migrate.ts"
     },
     "devDependencies": {
-        "@types/bun": "latest"
+        "@types/bun": "latest",
+        "@types/pg": "^8.16.0",
+        "drizzle-kit": "^0.31.8",
+        "tsx": "^4.21.0"
     },
     "peerDependencies": {
         "typescript": "^5"
     },
     "dependencies": {
-        "elysia": "^1.4.22"
+        "@paralleldrive/cuid2": "^3.3.0",
+        "dotenv": "^17.2.3",
+        "drizzle-orm": "^0.45.1",
+        "elysia": "^1.4.22",
+        "pg": "^8.18.0",
+        "postgres": "^3.4.8"
     }
 }
